@@ -1,0 +1,44 @@
+<app-navbar></app-navbar>
+<div class="container text-center mt-2">
+    <h3>Register Yourself!</h3>
+</div>
+
+<div class="container mt-3">
+   <form action="" class="was-validated">
+       <div class="form-group">
+           <label for="UserName">Name</label>
+           <input type="text" id="UserName" name="uname"  class="form-control" placeholder="Name" [(ngModel)] = "user.name" required>
+       </div>
+       <div class="form-row">
+           <div class="form-group col col-sm-12 col-md-4">
+               <label for="UserEmail">Email</label>
+               <input type="text" id="UserEmail" name="uemail" class="form-control" placeholder="Email" [(ngModel)]="user.email"  required>
+           </div>
+           <div class="form-group col col-sm-12 col-md-4">
+                <label for="UserPass">Password</label>
+                <input type="password" id="UserPass" name="upass" class="form-control" placeholder="Password" [(ngModel)]="user.password" required>
+            </div>
+            <div class="form-group col col-sm-12 col-md-4">
+                <label label for="Contact">Contact</label>
+                <input type="text" id="Contact" name="ucontact" class="form-control" placeholder="Contact No." [(ngModel)]="user.mobileNo" required>
+            </div>
+       </div>
+       <div class="form-row">
+           <div class="form-group col col-sm-12 col-md-6">
+               <label for="Gender">Gender</label>
+               <select class="form-control custom-select" name="ugender" id="Gender" [(ngModel)]="user.gender" required>
+                   <option selected>Male</option>
+                   <option >Female</option>
+               </select>
+           </div>
+           <div class="form-group col col-sm-12 col-md-6">
+               <label for="Pref">Preference</label>
+               <select class="form-control custom-select" name="upref" id="pref" [(ngModel)]="user.preference" required>
+                   <option selected>Vegetarian</option>
+                   <option >Non-Vegetarian</option>
+               </select>
+           </div>
+       </div>
+       <button class="btn btn-block btn-outline-success" (click)="registerUser()">Submit</button>
+   </form>
+</div>
