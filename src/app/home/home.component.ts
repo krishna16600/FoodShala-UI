@@ -1,4 +1,6 @@
+import { RestaurantService } from './../restaurant.service';
 import { Component, OnInit } from '@angular/core';
+import { AuthenticationService } from '../authentication.service';
 
 @Component({
   selector: 'app-home',
@@ -6,10 +8,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-
-  constructor() { }
+  items: any;
+  
+  constructor(private restaurantService: RestaurantService, public authentication: AuthenticationService) { }
 
   ngOnInit(): void {
+    this.restaurantService.getAllFoodItems().subscribe(data => {
+      this.items = data;
+      console.table(data);
+    })  
   }
 
 }

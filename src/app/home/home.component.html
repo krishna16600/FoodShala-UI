@@ -1,5 +1,25 @@
 <app-navbar></app-navbar>
 
-<div class="container mt-5">
-    <h1 style="color: brown;">hello Home</h1>
+<div class="container mt-5" class="text-center">
+    <h1 style="color: brown;">Welcome to FoodShala!</h1>
+</div>
+
+<div class="row mt-2 ml-2" style="max-width:100%"> 
+    <div class="col col-12 col-sm-12 col-md-4"  *ngFor="let item of items">
+        <div class="card mt-3 ">
+            <div class="card-header d-flex" *ngIf="item.foodType=='veg'">
+                    <h4 class="text-success">{{item.foodName}}</h4> 
+                    <h5 class="ml-auto text-success" style="text-transform: capitalize; font-style: italic;">{{item.foodType}}</h5>
+            </div>
+            <div class="card-header" *ngIf="item.foodType=='non-veg'">
+                <h4 class="text-danger">{{item.foodName}}</h4>
+            </div>
+            <div class="card-body">
+                <h4 style="font-style:italic">By: {{item.restaurant.restaurantName}}</h4>
+                <h5 style="font-style:italic">{{item.restaurant.address}}</h5>
+                <h5 style="font-style:italic; margin-bottom: 20px;">Price: {{item.price}}</h5>
+                <button class="btn btn-outline-success btn-block" *ngIf="authentication.isUserLoggedIn()">Add To Cart</button>
+            </div>
+        </div>
+    </div>
 </div>
