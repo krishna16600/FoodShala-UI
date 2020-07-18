@@ -1,3 +1,4 @@
+import { RestaurantService } from './../restaurant.service';
 import { UserService } from './../user.service';
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from '../authentication.service';
@@ -10,19 +11,15 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
 
-  public uname:string;
-  user: any;
-  isCustomer:string;
-
-  constructor(public loginService: AuthenticationService, private userService: UserService) { }
+  role: any;
+  constructor(public loginService: AuthenticationService, private userService: UserService, private restService: RestaurantService) { }
 
   ngOnInit(): void {
-    this.userService.getUser().subscribe(data => {
-        this.user = data;
-        this.uname = this.user.name;
-        this.isCustomer = this.user.role;
-    })
+   const r = sessionStorage.getItem('role');
+   if(r!=null || r!='')
+      this.role = r;
+  }
+  
   }
 
  
-}

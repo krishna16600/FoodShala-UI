@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -11,5 +11,20 @@ export class RestaurantService {
 
   getAllFoodItems(){
     return this.http.get(this.url+'/'+'getAllFoodItems');
+  }
+
+  getRole(email: string){
+    const headers = new HttpHeaders({Authorization: sessionStorage.getItem('basicAuth')})
+    return this.http.get(this.url+'/'+'check-role/'+ email , {headers});
+  }
+
+  getRestaurant(){
+    const headers = new HttpHeaders({Authorization: sessionStorage.getItem('basicAuth')})
+    return this.http.get(this.url+'/'+'get-restaurant', {headers});
+  }
+
+  getMenu(){
+    const headers = new HttpHeaders({Authorization: sessionStorage.getItem('basicAuth')})
+    return this.http.get(this.url+'/'+'get-menu', {headers});
   }
 }

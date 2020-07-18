@@ -9,7 +9,7 @@ import { AuthenticationService } from '../authentication.service';
 })
 export class HomeComponent implements OnInit {
   items: any;
-  
+  role: any;
   constructor(private restaurantService: RestaurantService, public authentication: AuthenticationService) { }
 
   ngOnInit(): void {
@@ -17,6 +17,9 @@ export class HomeComponent implements OnInit {
       this.items = data;
       console.table(data);
     })  
+    const r = sessionStorage.getItem('role');
+    if(r!=null || r!='')
+       this.role = r;
   }
 
 }

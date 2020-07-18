@@ -21,6 +21,20 @@ export class AuthenticationService {
       })
     )
   }
+  authenticateRestaurant(username: string, password: string) {
+    const headers = new HttpHeaders({ Authorization: 'Basic ' + btoa(username + ':' + password) });
+    return this.http.get('http://localhost:2019/validateRestaurantLogin', {headers}).pipe(
+      map(
+        userData => {
+          sessionStorage.setItem('username', username);
+          const authString = 'Basic ' + btoa(username + ':' + password);
+          sessionStorage.setItem('basicAuth', authString);
+          sessionStorage.setItem('role', 'restaurant');
+          return userData;
+        }
+      )
+    );
+  }
 
   isUserLoggedIn(){
     const user = sessionStorage.getItem('username');
@@ -30,5 +44,6 @@ export class AuthenticationService {
   logout(){
     sessionStorage.removeItem('username');
    sessionStorage.removeItem('basicAuth');
+   sessionStorage.removeItem('role');
   }
 }

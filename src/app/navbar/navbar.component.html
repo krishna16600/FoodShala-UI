@@ -5,8 +5,8 @@
         <li class="nav-item">
             <a href="" class="nav-link">Home</a>
         </li>
-        <li class="nav-item">
-            <a href="" class="nav-link">Restaurant Menu</a>
+        <li class="nav-item" *ngIf="loginService.isUserLoggedIn() && role=='restaurant'">
+            <a href="restaurant-menu" class="nav-link">Restaurant Menu</a>
         </li>
     </ul>
 
@@ -16,18 +16,18 @@
             <a href="login" class="nav-link" *ngIf="!loginService.isUserLoggedIn()">Login</a>
         </li>
         
-        <li class="nav-item dropdown">
-            <a *ngIf="loginService.isUserLoggedIn()" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              {{uname}}
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#">Orders</a>
-              <a class="dropdown-item" href="#">Edit Profile</a>
-              
-            </div>
-          </li>
-        
-          <li class="nav-item" *ngIf="loginService.isUserLoggedIn() && isCustomer=='customer'">
+        <li class="nav-item">
+            <a href="register-customer" class="nav-link" *ngIf="!loginService.isUserLoggedIn()">Register-User</a>
+        </li>
+
+        <li class="nav-item">
+            <a href="register-restaurant" class="nav-link" *ngIf="!loginService.isUserLoggedIn()">Register-Restaurant</a>
+        </li>
+      
+        <li class="nav-item" *ngIf="loginService.isUserLoggedIn() && role=='restaurant'">
+          <a href="" class="nav-link">Add Food Items </a>
+        </li>  
+          <li class="nav-item" *ngIf="loginService.isUserLoggedIn() && role=='customer'">
             <a href="" class="nav-link">Cart</a>
           </li>
         

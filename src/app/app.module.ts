@@ -11,6 +11,8 @@ import { RegisterUserComponent } from './register-user/register-user.component';
 import { RegisterRestaurantComponent } from './register-restaurant/register-restaurant.component';
 import { FormsModule } from '@angular/forms';
 import { LogoutComponent } from './logout/logout.component';
+import { RestaurantMenuComponent } from './restaurant-menu/restaurant-menu.component';
+import { AddItemComponent } from './add-item/add-item.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { LogoutComponent } from './logout/logout.component';
     LoginComponent,
     RegisterUserComponent,
     RegisterRestaurantComponent,
-    LogoutComponent
+    LogoutComponent,
+    RestaurantMenuComponent,
+    AddItemComponent
   ],
   imports: [
     BrowserModule,

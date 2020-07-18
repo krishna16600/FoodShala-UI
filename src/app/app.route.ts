@@ -1,3 +1,4 @@
+import { RestaurantMenuComponent } from './restaurant-menu/restaurant-menu.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterUserComponent } from './register-user/register-user.component';
 import { RegisterRestaurantComponent } from './register-restaurant/register-restaurant.component';
@@ -11,5 +12,6 @@ export const MAIN_ROUTES: Routes = [
     {path:'register-restaurant', component: RegisterRestaurantComponent},
     {path:'register-customer', component: RegisterUserComponent},
     {path:'login' , component:LoginComponent},
-    {path:'logout', component: LogoutComponent}
+    {path:'logout', component: LogoutComponent},
+    {path: 'restaurant-menu', component: RestaurantMenuComponent},
 ];
