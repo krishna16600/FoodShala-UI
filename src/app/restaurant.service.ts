@@ -32,4 +32,19 @@ export class RestaurantService {
     const headers = new HttpHeaders({Authorization: sessionStorage.getItem('basicAuth')})
     return this.http.post(this.url+'/'+'addFoodItem',item , {headers})
   }
+
+  getFoodItemById(id:number){
+    const headers = new HttpHeaders({Authorization: sessionStorage.getItem('basicAuth')})
+    return this.http.get(this.url+'/'+'get-food-item/' + id , {headers});
+  }
+
+  editFoodItem(item: any){
+    const headers = new HttpHeaders({Authorization: sessionStorage.getItem('basicAuth')})
+    return this.http.post(this.url+'/'+'edit-food-item', item, {headers});
+  }
+
+  deletetFoodItem(item: any){
+    const headers = new HttpHeaders({Authorization: sessionStorage.getItem('basicAuth')})
+    return this.http.delete(this.url+'/'+'delete-food-item/'+item, {headers});
+  }
 }

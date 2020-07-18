@@ -13,6 +13,7 @@ import { FormsModule } from '@angular/forms';
 import { LogoutComponent } from './logout/logout.component';
 import { RestaurantMenuComponent } from './restaurant-menu/restaurant-menu.component';
 import { AddItemComponent } from './add-item/add-item.component';
+import { EditFoodItemComponent } from './edit-food-item/edit-food-item.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { AddItemComponent } from './add-item/add-item.component';
     RegisterRestaurantComponent,
     LogoutComponent,
     RestaurantMenuComponent,
-    AddItemComponent
+    AddItemComponent,
+    EditFoodItemComponent
   ],
   imports: [
     BrowserModule,

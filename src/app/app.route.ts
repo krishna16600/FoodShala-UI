@@ -1,3 +1,4 @@
+import { EditFoodItemComponent } from './edit-food-item/edit-food-item.component';
 import { AddItemComponent } from './add-item/add-item.component';
 import { RestaurantMenuComponent } from './restaurant-menu/restaurant-menu.component';
 import { LoginComponent } from './login/login.component';
@@ -15,5 +16,6 @@ export const MAIN_ROUTES: Routes = [
     {path:'login' , component:LoginComponent},
     {path:'logout', component: LogoutComponent},
     {path: 'restaurant-menu', component: RestaurantMenuComponent},
-    {path: 'add-food-item', component: AddItemComponent}
+    {path: 'add-food-item', component: AddItemComponent},
+    {path: 'edit-food-item/:id', component: EditFoodItemComponent}
 ];
