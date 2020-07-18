@@ -27,4 +27,9 @@ export class RestaurantService {
     const headers = new HttpHeaders({Authorization: sessionStorage.getItem('basicAuth')})
     return this.http.get(this.url+'/'+'get-menu', {headers});
   }
+
+  addItem(item: any){
+    const headers = new HttpHeaders({Authorization: sessionStorage.getItem('basicAuth')})
+    return this.http.post(this.url+'/'+'addFoodItem',item , {headers})
+  }
 }

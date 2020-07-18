@@ -1,4 +1,7 @@
+import { RestaurantService } from './../restaurant.service';
 import { Component, OnInit } from '@angular/core';
+import { Item } from '../Item';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-item',
@@ -6,10 +9,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./add-item.component.scss']
 })
 export class AddItemComponent implements OnInit {
-
-  constructor() { }
+  public food:Item = new class implements Item{
+    foodId: number;
+    foodName:string;
+    foodType:string;
+    price:string;
+  }
+  
+  constructor(private restService: RestaurantService, private router: Router) { }
 
   ngOnInit(): void {
   }
-
+  addItem(){
+    this.restService.addItem(this.food).subscribe(data =>{
+     alert(data);
+      this.router.navigate(['restaurant-menu'])
+    })
+  } 
 }
