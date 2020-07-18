@@ -1,6 +1,7 @@
 import { RestaurantService } from './../restaurant.service';
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from '../authentication.service';
+import { CartService } from '../cart.service';
 
 @Component({
   selector: 'app-home',
@@ -10,7 +11,7 @@ import { AuthenticationService } from '../authentication.service';
 export class HomeComponent implements OnInit {
   items: any;
   role: any;
-  constructor(private restaurantService: RestaurantService, public authentication: AuthenticationService) { }
+  constructor(private restaurantService: RestaurantService, public authentication: AuthenticationService, private cartService: CartService) { }
 
   ngOnInit(): void {
     this.restaurantService.getAllFoodItems().subscribe(data => {
@@ -20,6 +21,12 @@ export class HomeComponent implements OnInit {
     const r = sessionStorage.getItem('role');
     if(r!=null || r!='')
        this.role = r;
+  }
+
+  addToCart(foodId: number){
+    this.cartService.addToCart(foodId).subscribe(data => {
+      alert(data);
+    })
   }
 
 }

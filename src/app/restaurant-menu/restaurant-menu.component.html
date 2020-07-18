@@ -11,8 +11,9 @@
                     <h4 class="text-success">{{item.foodName}}</h4> 
                     <h5 class="ml-auto text-success" style="text-transform: capitalize; font-style: italic;">{{item.foodType}}</h5>
             </div>
-            <div class="card-header" *ngIf="item.foodType=='non-veg'">
+            <div class="card-header d-flex" *ngIf="item.foodType=='non-veg'">
                 <h4 class="text-danger">{{item.foodName}}</h4>
+                <h5 class="ml-auto text-danger" style="text-transform: capitalize; font-style: italic;">{{item.foodType}}</h5>
             </div>
             <div class="card-body">
                 <h4 style="font-style:italic">By: {{item.restaurant.restaurantName}}</h4>

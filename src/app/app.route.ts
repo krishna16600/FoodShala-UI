@@ -7,6 +7,7 @@ import { RegisterRestaurantComponent } from './register-restaurant/register-rest
 import {Routes} from '@angular/router'
 import { HomeComponent } from './home/home.component';
 import { LogoutComponent } from './logout/logout.component';
+import { CartComponent } from './cart/cart.component';
 
 export const MAIN_ROUTES: Routes = [
     {path: '', redirectTo:'/home', pathMatch:'full'},
@@ -17,5 +18,6 @@ export const MAIN_ROUTES: Routes = [
     {path:'logout', component: LogoutComponent},
     {path: 'restaurant-menu', component: RestaurantMenuComponent},
     {path: 'add-food-item', component: AddItemComponent},
-    {path: 'edit-food-item/:id', component: EditFoodItemComponent}
+    {path: 'edit-food-item/:id', component: EditFoodItemComponent},
+    {path: 'cart', component: CartComponent}
 ];

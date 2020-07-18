@@ -21,9 +21,14 @@ export class AddItemComponent implements OnInit {
   ngOnInit(): void {
   }
   addItem(){
-    this.restService.addItem(this.food).subscribe(data =>{
-     alert(data);
-      this.router.navigate(['restaurant-menu'])
-    })
+    if(this.food.foodName!=null && this.food.foodType!=null &&this.food.price!=null){
+      this.restService.addItem(this.food).subscribe(data =>{
+        alert(data);
+        this.router.navigate(['restaurant-menu'])
+      })
+    } else{
+      alert("Enter All Details");
+      location.reload()
+    }
   } 
 }

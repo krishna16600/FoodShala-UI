@@ -18,7 +18,7 @@
                 <h4 style="font-style:italic">By: {{item.restaurant.restaurantName}}</h4>
                 <h5 style="font-style:italic">{{item.restaurant.address}}</h5>
                 <h5 style="font-style:italic; margin-bottom: 20px;">Price: {{item.price}}</h5>
-                <button class="btn btn-outline-success btn-block" *ngIf="authentication.isUserLoggedIn() && role=='customer'">Add To Cart</button>
+                <button class="btn btn-outline-success btn-block" *ngIf="authentication.isUserLoggedIn() && role=='customer'" (click)="addToCart(item.foodId)">Add To Cart</button>
             </div>
         </div>
     </div>

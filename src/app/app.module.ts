@@ -14,6 +14,7 @@ import { LogoutComponent } from './logout/logout.component';
 import { RestaurantMenuComponent } from './restaurant-menu/restaurant-menu.component';
 import { AddItemComponent } from './add-item/add-item.component';
 import { EditFoodItemComponent } from './edit-food-item/edit-food-item.component';
+import { CartComponent } from './cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { EditFoodItemComponent } from './edit-food-item/edit-food-item.component
     LogoutComponent,
     RestaurantMenuComponent,
     AddItemComponent,
-    EditFoodItemComponent
+    EditFoodItemComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
