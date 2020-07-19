@@ -11,13 +11,21 @@ export class CartComponent implements OnInit {
   
   items: any;
   quantity: number;
-  price: number;
+  total: number;
   constructor(private router: Router, private route: ActivatedRoute, private cartService: CartService) { }
 
   ngOnInit(): void {
       this.cartService.showCart().subscribe(data => {
         this.items = data;
-        console.log(this.items);
+        let length = this.items.length;
+        let total = 0;
+        let quantity = 0;
+        for(let i=0;i<length;i++){
+          total= total + Number(this.items[i].foodItem.price)* Number(this.items[i].quantity);
+          quantity = quantity + Number(this.items[i].quantity);
+        }
+        this.quantity = quantity;
+          this.total = total;
         
       })
   }
@@ -26,6 +34,16 @@ export class CartComponent implements OnInit {
     this.cartService.addToCart(foodId).subscribe(data => {
      this.cartService.showCart().subscribe(data1 => {
        this.items = data1;
+       let length = this.items.length;
+       let total = 0;
+       let quantity = 0;
+       for(let i=0;i<length;i++){
+         total= total + Number(this.items[i].foodItem.price)* Number(this.items[i].quantity);
+         quantity = quantity + Number(this.items[i].quantity);
+       }
+       this.quantity = quantity;
+
+         this.total = total;
      })
 
     })
@@ -35,8 +53,42 @@ export class CartComponent implements OnInit {
     this.cartService.decreaseQuant(foodId).subscribe(data => {
       this.cartService.showCart().subscribe(data1 => {
         this.items = data1;
+        let length = this.items.length;
+        let total = 0;
+       
+        let quantity = 0;
+        for(let i=0;i<length;i++){
+          total= total + Number(this.items[i].foodItem.price)* Number(this.items[i].quantity);
+          quantity = quantity + Number(this.items[i].quantity);
+        }
+        this.quantity = quantity;
+          this.total = total;
       })
     })
   }
 
+  removeItem(foodId){
+    this.cartService.removeItem(foodId).subscribe(data => {
+      this.cartService.showCart().subscribe(data1 => {
+        this.items = data1;
+        let length = this.items.length;
+        let total = 0;
+       
+        let quantity = 0;
+        for(let i=0;i<length;i++){
+          total= total + Number(this.items[i].foodItem.price)* Number(this.items[i].quantity);
+          quantity = quantity + Number(this.items[i].quantity);
+        }
+        this.quantity = quantity;
+          this.total = total;
+      })
+    })
+  }
+
+  checkout(){
+    this.cartService.checkout().subscribe(data => {
+      alert('Order Placed Successfully!')
+      this.router.navigate(['home']);
+    })
+  }
 }
