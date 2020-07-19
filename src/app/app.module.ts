@@ -15,6 +15,7 @@ import { RestaurantMenuComponent } from './restaurant-menu/restaurant-menu.compo
 import { AddItemComponent } from './add-item/add-item.component';
 import { EditFoodItemComponent } from './edit-food-item/edit-food-item.component';
 import { CartComponent } from './cart/cart.component';
+import { ViewOrderComponent } from './view-order/view-order.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { CartComponent } from './cart/cart.component';
     RestaurantMenuComponent,
     AddItemComponent,
     EditFoodItemComponent,
-    CartComponent
+    CartComponent,
+    ViewOrderComponent
   ],
   imports: [
     BrowserModule,

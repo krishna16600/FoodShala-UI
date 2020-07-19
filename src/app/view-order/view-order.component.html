@@ -1,0 +1,30 @@
+<app-navbar></app-navbar>
+<div class="container mt-5">
+    <h3>See Who Ordered What?</h3>
+</div>
+
+<div class="container mt-5">
+    <div class="container shadow p-3 mb-5 bg-light rounded" *ngFor="let order of orders | keyvalue" >
+        <div class="container m-2 p-2">
+            <h3 style="text-transform: capitalize;">Ordered By: {{order.value[0].user.name}} , {{order.value[0].date | date:'medium'}}</h3>
+        </div>
+        <table class="table ">
+            <thead>
+                <tr>
+                    <th scope="col">Item Name</th>
+                    <th scope="col">Item Quantity</th>
+                    <th scope="col">Item Price/pc</th>
+
+                </tr>
+            </thead>
+            <tbody *ngFor="let item of order.value">
+                <tr>
+                    <td>{{item.menu.foodName}}</td>
+                    <td >{{item.quantity}}</td>
+                    <td >{{item.menu.price}}</td>
+                </tr>
+            </tbody>
+        </table>
+       
+    </div>
+</div>

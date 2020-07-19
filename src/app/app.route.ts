@@ -1,3 +1,4 @@
+import { ViewOrderComponent } from './view-order/view-order.component';
 import { EditFoodItemComponent } from './edit-food-item/edit-food-item.component';
 import { AddItemComponent } from './add-item/add-item.component';
 import { RestaurantMenuComponent } from './restaurant-menu/restaurant-menu.component';
@@ -19,5 +20,6 @@ export const MAIN_ROUTES: Routes = [
     {path: 'restaurant-menu', component: RestaurantMenuComponent},
     {path: 'add-food-item', component: AddItemComponent},
     {path: 'edit-food-item/:id', component: EditFoodItemComponent},
-    {path: 'cart', component: CartComponent}
+    {path: 'cart', component: CartComponent},
+    {path: 'view-order', component: ViewOrderComponent}
 ];

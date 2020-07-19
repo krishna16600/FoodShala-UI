@@ -8,6 +8,9 @@
         <li class="nav-item" *ngIf="loginService.isUserLoggedIn() && role=='restaurant'">
             <a href="restaurant-menu" class="nav-link">Restaurant Menu</a>
         </li>
+        <li class="nav-item" *ngIf="loginService.isUserLoggedIn() && role=='restaurant'">
+            <a href="view-order" class="nav-link"> View Orders </a>
+        </li>
     </ul>
 
     <ul class="nav navbar-nav float-sm-right ml-auto">
