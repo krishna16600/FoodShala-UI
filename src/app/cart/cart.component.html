@@ -20,13 +20,13 @@
                         <h5 style="font-style:italic">{{item.foodItem.restaurant.address}}</h5>
                         <h5 style="font-style:italic; margin-bottom: 20px;">Price: {{item.foodItem.price}}</h5>
                         <div class="row">
-                            <div class="col col-12 col-sm-12 col-md-4">
+                            <div class="col col-4 col-sm-4 col-md-4">
                                 <button class="btn btn-outline-danger btn-block" (click)="decreaseQuantity(item.foodItem.foodId)">-</button>
                             </div>
-                            <div class="col col-12 col-sm-12 col-md-4 text-center">
+                            <div class="col col-4 col-sm-4 col-md-4 text-center">
                                 <h3>{{item.quantity}} </h3>
                             </div>
-                            <div class="col col-12 col-sm-12 col-md-4">
+                            <div class="col col-4 col-sm-4 col-md-4">
                                 <button class="btn btn-outline-success btn-block" (click)="increaseQuantity(item.foodItem.foodId)">+</button>
                             </div>
                             <button class="btn btn-outline-danger btn-block m-2" (click)="removeItem(item.foodItem.foodId)">Remove</button>

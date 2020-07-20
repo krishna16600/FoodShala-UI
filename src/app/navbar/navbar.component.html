@@ -9,8 +9,9 @@
             <a href="restaurant-menu" class="nav-link">Restaurant Menu</a>
         </li>
         <li class="nav-item" *ngIf="loginService.isUserLoggedIn() && role=='restaurant'">
-            <a href="view-order" class="nav-link"> View Orders </a>
-        </li>
+            <a href="add-food-item" class="nav-link">Add Food Items </a>
+          </li> 
+        
     </ul>
 
     <ul class="nav navbar-nav float-sm-right ml-auto">
@@ -28,8 +29,9 @@
         </li>
       
         <li class="nav-item" *ngIf="loginService.isUserLoggedIn() && role=='restaurant'">
-          <a href="add-food-item" class="nav-link">Add Food Items </a>
-        </li>  
+            <a href="view-order" class="nav-link"> View Orders </a>
+        </li>
+        
           <li class="nav-item" *ngIf="loginService.isUserLoggedIn() && role=='customer'">
             <a href="cart" class="nav-link">Cart</a>
           </li>

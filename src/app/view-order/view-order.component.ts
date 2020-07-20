@@ -20,6 +20,7 @@ export class ViewOrderComponent implements OnInit {
       
 
       this.orders = data;
+      Object.assign(this.orders).reverse();
       console.log('Orders are ', this.orders);
     })
  

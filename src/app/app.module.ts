@@ -1,3 +1,6 @@
+import { LoginGuard } from './login.guard';
+import { RoleGuard } from './role.guard';
+import { AuthGuard } from './auth.guard';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -16,6 +19,7 @@ import { AddItemComponent } from './add-item/add-item.component';
 import { EditFoodItemComponent } from './edit-food-item/edit-food-item.component';
 import { CartComponent } from './cart/cart.component';
 import { ViewOrderComponent } from './view-order/view-order.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +34,8 @@ import { ViewOrderComponent } from './view-order/view-order.component';
     AddItemComponent,
     EditFoodItemComponent,
     CartComponent,
-    ViewOrderComponent
+    ViewOrderComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +43,7 @@ import { ViewOrderComponent } from './view-order/view-order.component';
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [AuthGuard, RoleGuard, LoginGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

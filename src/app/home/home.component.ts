@@ -16,7 +16,6 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.restaurantService.getAllFoodItems().subscribe(data => {
       this.items = data;
-      console.table(data);
     })  
     const r = sessionStorage.getItem('role');
     if(r!=null || r!='')
