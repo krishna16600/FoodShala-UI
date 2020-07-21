@@ -1,7 +1,7 @@
 <app-navbar></app-navbar>
 
-<div class="container mt-5" class="text-center">
-    <h1 style="color: brown;">Welcome to FoodShala!</h1>
+<div class="container mt-3 mb-2 text-center">
+    <h1 style="color: brown; font-family: cursive;">Welcome to FoodShala!</h1>
 </div>
 
 <div class="row mt-2 ml-2" style="max-width:100%"> 
@@ -11,14 +11,18 @@
                     <h4 class="text-success">{{item.foodName}}</h4> 
                     <h5 class="ml-auto text-success" style="text-transform: capitalize; font-style: italic;">{{item.foodType}}</h5>
             </div>
-            <div class="card-header" *ngIf="item.foodType=='non-veg'">
+            <div class="card-header d-flex" *ngIf="item.foodType=='non-veg'">
                 <h4 class="text-danger">{{item.foodName}}</h4>
+                <h5 class="ml-auto text-danger" style="text-transform: capitalize; font-style: italic;">{{item.foodType}}</h5>
+
             </div>
             <div class="card-body">
                 <h4 style="font-style:italic">By: {{item.restaurant.restaurantName}}</h4>
                 <h5 style="font-style:italic">{{item.restaurant.address}}</h5>
                 <h5 style="font-style:italic; margin-bottom: 20px;">Price: {{item.price}}</h5>
-                <button class="btn btn-outline-success btn-block" *ngIf="authentication.isUserLoggedIn() && role=='customer'" (click)="addToCart(item.foodId)">Add To Cart</button>
+                <button class="btn btn-success btn-block" *ngIf="authentication.isUserLoggedIn() && role=='customer' && item.foodType=='veg'" (click)="addToCart(item.foodId)">Add To Cart</button>
+                <button class="btn btn-danger btn-block" *ngIf="authentication.isUserLoggedIn() && role=='customer' && item.foodType=='non-veg'" (click)="addToCart(item.foodId)">Add To Cart</button>
+
             </div>
         </div>
     </div>

@@ -1,6 +1,6 @@
 <app-navbar></app-navbar>
 <div class="container mt-5 text-center">
-    <h3>Cart</h3>
+    <h1>Cart</h1>
 </div>
 
 <div class="row mt-2" id="cont">
@@ -12,8 +12,10 @@
                             <h4 class="text-success">{{item.foodItem.foodName}}</h4> 
                             <h5 class="ml-auto text-success" style="text-transform: capitalize; font-style: italic;">{{item.foodItem.foodType}}</h5>
                     </div>
-                    <div class="card-header" *ngIf="item.foodItem.foodType=='non-veg'">
+                    <div class="card-header d-flex" *ngIf="item.foodItem.foodType=='non-veg'">
                         <h4 class="text-danger">{{item.foodItem.foodName}}</h4>
+                        <h5 class="ml-auto text-danger" style="text-transform: capitalize; font-style: italic;">{{item.foodItem.foodType}}</h5>
+
                     </div>
                     <div class="card-body">
                         <h4 style="font-style:italic">By: {{item.foodItem.restaurant.restaurantName}}</h4>
@@ -29,7 +31,7 @@
                             <div class="col col-4 col-sm-4 col-md-4">
                                 <button class="btn btn-outline-success btn-block" (click)="increaseQuantity(item.foodItem.foodId)">+</button>
                             </div>
-                            <button class="btn btn-outline-danger btn-block m-2" (click)="removeItem(item.foodItem.foodId)">Remove</button>
+                            <button class="btn btn-danger btn-block m-2" (click)="removeItem(item.foodItem.foodId)">Remove</button>
                         </div>
                     </div>
                 </div>
@@ -39,30 +41,30 @@
     <div class="col col-12 col-sm-12 col-md-5" >
        <div class="card mt-3">
           <div class="card-header">
-              <h3>Total Price: </h3>
+              <h3>Order Summary: </h3>
           </div>
           <div class="row">
               <div class="col" >
                 <div class="card-body" >
                     <div class="row">
                         <div class="col">
-                            <h4>Item Name:</h4>
+                            <h4>Item Name</h4>
                         </div>
                         <div class="col">
-                            <h4>Quantity:</h4>
+                            <h4>Quantity</h4>
                         </div>
                         <div class="col">
                             <h4>Price/pc</h4>
                         </div>
                     </div>
                     <div class="row" *ngFor="let item of items">
-                        <div class="col col-md-4 ">
-                            <h6>{{item.foodItem.foodName}}</h6>
+                        <div class="col col-md-4 mt-1 ">
+                            <h5 style="text-transform: capitalize; font-style: italic;">{{item.foodItem.foodName}}</h5>
                         </div>
-                        <div class="col col-md-4 text-center">
+                        <div class="col col-md-4 mt-1 text-center">
                             <h6>{{item.quantity}}</h6>
                         </div>
-                        <div class="col col-md-4 text-center">
+                        <div class="col col-md-4 mt-1 text-center">
                             <h6>Rs. {{item.foodItem.price}}</h6>
                         </div>
                     </div>
@@ -72,10 +74,10 @@
                             <h6>Total:</h6>
                         </div>
                         <div class="col text-center">
-                            <h6>{{quantity}}</h6>
+                            <h6> <span style="color: green;">{{quantity}}</span></h6>
                         </div>
                         <div class="col text-center">
-                            <h6>Rs. {{total}}</h6>
+                            <h6>Rs. <span style="color: green;">{{total}}</span> </h6>
                         </div>
                     </div>
                     <button class="btn btn-outline-success btn-block btn-sm" (click)="checkout()">Check-Out</button>
