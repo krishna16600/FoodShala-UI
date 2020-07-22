@@ -21,7 +21,7 @@ export class RegisterUserComponent implements OnInit {
     email: string;
     role: string;
   }
-  constructor(private register: RegistrationService, private router: Router) { }
+  constructor(public register: RegistrationService, public router: Router) { }
 
   ngOnInit(): void {
   }
@@ -33,7 +33,10 @@ export class RegisterUserComponent implements OnInit {
       this.user.mobileNo!=null){
           this.register.registerCustomer(this.user).subscribe(data => {
             alert(data);
-            this.router.navigate(['login']);
+            if(data=='User Already Exists')
+              location.reload();
+            else
+              this.router.navigate(['login']);
           })
     } else{
       alert("Couldn't add user");

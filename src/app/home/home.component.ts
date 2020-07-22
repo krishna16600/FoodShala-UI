@@ -11,7 +11,7 @@ import { CartService } from '../cart.service';
 export class HomeComponent implements OnInit {
   items: any;
   role: any;
-  constructor(private restaurantService: RestaurantService, public authentication: AuthenticationService, private cartService: CartService) { }
+  constructor(public restaurantService: RestaurantService, public authentication: AuthenticationService, public cartService: CartService) { }
 
   ngOnInit(): void {
     this.restaurantService.getAllFoodItems().subscribe(data => {

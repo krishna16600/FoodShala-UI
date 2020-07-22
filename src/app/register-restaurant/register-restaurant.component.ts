@@ -33,6 +33,7 @@ export class RegisterRestaurantComponent implements OnInit {
       && this.restaurant.mobileNo != null && this.restaurant.address!=null){
         this.register.registerRestaurant(this.restaurant).subscribe(data => {
           alert('Registered Successfully!');
+          this.router.navigate(['login']);
         })
       } else{
         alert('Please fill all the details');

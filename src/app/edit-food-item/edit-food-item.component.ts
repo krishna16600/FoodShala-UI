@@ -10,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
 export class EditFoodItemComponent implements OnInit {
   food:any;
   public foodId;
-  constructor(private router:Router, private route: ActivatedRoute, private restService: RestaurantService) { }
+  constructor(public router:Router, public route: ActivatedRoute, public restService: RestaurantService) { }
 
   ngOnInit(): void {
     this.foodId = this.route.snapshot.paramMap.get('id');

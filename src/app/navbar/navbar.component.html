@@ -1,6 +1,10 @@
-<div class="navbar navbar-expand-lg navbar-dark bg-dark">
+<div class="navbar navbar-expand-md navbar-dark bg-dark">
 <a href="" class="navbar-brand active">FoodShala</a>
 
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
     <ul class="nav navbar-nav float-sm-right">
         <li class="nav-item">
             <a href="" class="nav-link">Home</a>
@@ -15,18 +19,22 @@
     </ul>
 
     <ul class="nav navbar-nav float-sm-right ml-auto">
-        
+      <li class="nav-item" *ngIf="loginService.isUserLoggedIn()">
+        <a href="home" class="nav-link">{{uName}}</a>
+      </li>
+        <li class="nav-item dropdown" *ngIf="!loginService.isUserLoggedIn()">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Register
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a href="register-customer" class="nav-link text-dark" *ngIf="!loginService.isUserLoggedIn()">Register-User</a>
+              <a href="register-restaurant" class="nav-link text-dark" *ngIf="!loginService.isUserLoggedIn()">Register-Restaurant</a>
+              </div>
+          </li>
         <li class="nav-item">
             <a href="login" class="nav-link" *ngIf="!loginService.isUserLoggedIn()">Login</a>
         </li>
-        
-        <li class="nav-item">
-            <a href="register-customer" class="nav-link" *ngIf="!loginService.isUserLoggedIn()">Register-User</a>
-        </li>
-
-        <li class="nav-item">
-            <a href="register-restaurant" class="nav-link" *ngIf="!loginService.isUserLoggedIn()">Register-Restaurant</a>
-        </li>
+       
       
         <li class="nav-item" *ngIf="loginService.isUserLoggedIn() && role=='restaurant'">
             <a href="view-order" class="nav-link"> View Orders </a>
@@ -42,4 +50,5 @@
        
        
     </ul>
+    </div>
 </div>

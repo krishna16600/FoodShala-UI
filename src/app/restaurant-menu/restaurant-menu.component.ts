@@ -9,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class RestaurantMenuComponent implements OnInit {
   items: any;
 
-  constructor(private restService: RestaurantService) { }
+  constructor(public restService: RestaurantService) { }
 
   ngOnInit(): void {
     this.restService.getMenu().subscribe(data => {

@@ -7,7 +7,7 @@ import { Injectable } from '@angular/core';
 export class RestaurantService {
 
   constructor(private http: HttpClient) { }
-  private url = 'http://localhost:2019';
+  private url = 'http://foodshalaaws-env.eba-ups6kvfu.us-east-2.elasticbeanstalk.com';
 
   getAllFoodItems(){
     return this.http.get(this.url+'/'+'getAllFoodItems');

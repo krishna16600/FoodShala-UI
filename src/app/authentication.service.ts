@@ -11,7 +11,7 @@ export class AuthenticationService {
 
   authenticate(username, password){
     const headers = new HttpHeaders({Authorization: 'Basic '+ btoa(username+':'+password)});
-    return this.http.get('http://localhost:2019/validateCustomerLogin', {headers}).pipe(
+    return this.http.get('http://foodshalaaws-env.eba-ups6kvfu.us-east-2.elasticbeanstalk.com/validateCustomerLogin', {headers}).pipe(
       map(data => {
         sessionStorage.setItem('username', username);
         const authString = 'Basic '+btoa(username+':'+password);
@@ -22,7 +22,7 @@ export class AuthenticationService {
   }
   authenticateRestaurant(username: string, password: string) {
     const headers = new HttpHeaders({ Authorization: 'Basic ' + btoa(username + ':' + password) });
-    return this.http.get('http://localhost:2019/validateRestaurantLogin', {headers}).pipe(
+    return this.http.get('http://foodshalaaws-env.eba-ups6kvfu.us-east-2.elasticbeanstalk.com/validateRestaurantLogin', {headers}).pipe(
       map(
         userData => {
           sessionStorage.setItem('username', username);

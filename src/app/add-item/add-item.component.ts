@@ -16,7 +16,7 @@ export class AddItemComponent implements OnInit {
     price:string;
   }
   
-  constructor(private restService: RestaurantService, private router: Router) { }
+  constructor(public restService: RestaurantService, public router: Router) { }
 
   ngOnInit(): void {
   }

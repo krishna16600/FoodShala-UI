@@ -12,10 +12,15 @@ import { Router } from '@angular/router';
 export class NavbarComponent implements OnInit {
 
   role: any;
-  constructor(public loginService: AuthenticationService, private userService: UserService, private restService: RestaurantService) { }
+  uName: any;
+  constructor(public loginService: AuthenticationService, public userService: UserService, public restService: RestaurantService) { }
 
   ngOnInit(): void {
    const r = sessionStorage.getItem('role');
+   const n = sessionStorage.getItem('username');
+   if(n!=null || n!='')
+      this.uName = n;
+
    if(r!=null || r!='')
       this.role = r;
   }

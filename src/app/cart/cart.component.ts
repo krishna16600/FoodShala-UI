@@ -12,7 +12,7 @@ export class CartComponent implements OnInit {
   items: any;
   quantity: number;
   total: number;
-  constructor(private router: Router, private route: ActivatedRoute, private cartService: CartService) { }
+  constructor(public router: Router, public route: ActivatedRoute, public cartService: CartService) { }
 
   ngOnInit(): void {
       this.cartService.showCart().subscribe(data => {

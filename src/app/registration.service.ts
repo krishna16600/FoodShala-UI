@@ -9,7 +9,7 @@ import { Injectable } from '@angular/core';
 export class RegistrationService {
 
   constructor(private http: HttpClient ) { }
-  private url = 'http://localhost:2019';
+  private url = 'http://foodshalaaws-env.eba-ups6kvfu.us-east-2.elasticbeanstalk.com';
 
   registerRestaurant(restaurant: Restaurant){
     return this.http.post(this.url+'/'+'addRestaurant', restaurant);

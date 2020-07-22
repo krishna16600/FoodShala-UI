@@ -9,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class ViewOrderComponent implements OnInit {
   orders:any;
  
-  constructor(private viewService: ViewOrderService, ) {
+  constructor(public viewService: ViewOrderService, ) {
     type product = {date: Date, menu:any, quantity:any, restaurant:any, user:any};
     var itemListMap: Map<number, product[]> = new Map<number,product[]>();
    }
