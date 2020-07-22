@@ -1,6 +1,8 @@
 # FoodShala-UI
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.8.
+The live project can be seen at http://foodshalabykrishna.s3-website.us-east-2.amazonaws.com
+Made with ❤ by Krishna Malhotra
 
 ## Development server
 
