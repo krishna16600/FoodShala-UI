@@ -12,15 +12,15 @@
        <div class="form-row">
            <div class="form-group col col-12 col-sm-12 col-md-4">
                <label for="UserEmail">Email</label>
-               <input type="text" id="UserEmail" name="uemail" class="form-control form-control-lg" placeholder="Email" [(ngModel)]="user.email"  required>
+               <input type="email" id="UserEmail" name="uemail" class="form-control form-control-lg" placeholder="Email" [(ngModel)]="user.email"  required>
            </div>
            <div class="form-group col col-12 col-sm-12 col-md-4">
                 <label for="UserPass">Password</label>
-                <input type="password" id="UserPass" name="upass" class="form-control form-control-lg" placeholder="Password" [(ngModel)]="user.password" required>
+                <input type="password" id="UserPass" name="upass" minlength="5" class="form-control form-control-lg" placeholder="Password (min 5 characters)" [(ngModel)]="user.password" required>
             </div>
             <div class="form-group col col-12 col-sm-12 col-md-4">
                 <label label for="Contact">Contact</label>
-                <input type="text" id="Contact" name="ucontact" class="form-control form-control-lg" placeholder="Contact No." [(ngModel)]="user.mobileNo" required>
+                <input type="text" id="Contact"  [pattern]="mobPattern" #mobNo="ngModel" name="ucontact" class="form-control form-control-lg" minlength="5" placeholder="Contact No." [(ngModel)]="user.mobileNo" required>
             </div>
        </div>
        <div class="form-row">

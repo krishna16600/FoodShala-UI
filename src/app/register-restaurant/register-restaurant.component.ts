@@ -1,6 +1,6 @@
 import { Restaurant } from './../Restaurant';
 import { Component, OnInit } from '@angular/core';
-import {FormControl} from '@angular/forms';
+import {FormControl, Validators} from '@angular/forms';
 import { RegistrationService } from '../registration.service';
 import { Router } from '@angular/router';
 
@@ -28,6 +28,7 @@ export class RegisterRestaurantComponent implements OnInit {
   ngOnInit(): void {
   }
   
+  mobPattern = '^((\\+91-?)|0)?[0-9]{10}$';
   registerRestaurant(){
     if (this.restaurant.restaurantName != null && this.restaurant.email != null && this.restaurant.password != null
       && this.restaurant.mobileNo != null && this.restaurant.address!=null){

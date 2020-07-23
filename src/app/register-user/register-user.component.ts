@@ -25,7 +25,7 @@ export class RegisterUserComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  mobPattern = '^((\\+91-?)|0)?[0-9]{10}$';
   registerUser(){
     console.table(this.user);
     
