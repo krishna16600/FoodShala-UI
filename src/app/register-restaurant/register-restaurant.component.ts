@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormControl, Validators} from '@angular/forms';
 import { RegistrationService } from '../registration.service';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-register-restaurant',
@@ -32,12 +33,22 @@ export class RegisterRestaurantComponent implements OnInit {
   registerRestaurant(){
     if (this.restaurant.restaurantName != null && this.restaurant.email != null && this.restaurant.password != null
       && this.restaurant.mobileNo != null && this.restaurant.address!=null){
-        this.register.registerRestaurant(this.restaurant).subscribe(data => {
-          alert('Registered Successfully!');
+        this.register.registerRestaurant(this.restaurant).subscribe(async data => {
+          await Swal.fire({
+            icon:'success',
+            title:'Success',
+            text:'Restaurant registered sucessfully!',
+            timer:1000
+          })
           this.router.navigate(['login']);
         })
       } else{
-        alert('Please fill all the details');
+         Swal.fire({
+          icon:'error',
+          title:'Oops.. ',
+          text:'Seems like some fields are empty',
+          timer:1000
+        })
       }
   }
 }

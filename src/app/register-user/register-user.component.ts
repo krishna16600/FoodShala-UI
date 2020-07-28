@@ -2,6 +2,7 @@ import { User } from './../User';
 import { RegistrationService } from './../registration.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-register-user',
@@ -31,15 +32,33 @@ export class RegisterUserComponent implements OnInit {
     
     if(this.user.name!=null && this.user.password!=null && this.user.email!=null && this.user.gender!=null && this.user.preference!=null && 
       this.user.mobileNo!=null){
-          this.register.registerCustomer(this.user).subscribe(data => {
-            alert(data);
-            if(data=='User Already Exists')
+          this.register.registerCustomer(this.user).subscribe(async data => {
+           
+            if(data=='User Already Exists'){
+              await Swal.fire({
+                icon:'error',
+                title:'User Already Exists',
+                timer:1000
+              })
               location.reload();
-            else
-              this.router.navigate(['login']);
+            }
+              else{
+                await Swal.fire({
+                  icon:'success',
+                  title:'Success',
+                  text:'User Added Successfully',
+                  timer:1000
+                })
+                this.router.navigate(['login']);
+              }
           })
     } else{
-      alert("Couldn't add user");
+     Swal.fire({
+       icon:'error',
+       title:'Oops..',
+       text:'Try again',
+       timer:1000
+     })
     }
   }
 }

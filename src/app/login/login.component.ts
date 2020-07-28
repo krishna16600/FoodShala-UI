@@ -1,3 +1,4 @@
+import Swal from 'sweetalert2'
 import { RestaurantService } from './../restaurant.service';
 import { AppService } from './../app.service';
 import { Component, OnInit } from '@angular/core';
@@ -21,24 +22,36 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  login(){
-    this.auth.authenticate(this.username, this.password).subscribe(data => {
+    login(){
+       this.auth.authenticate(this.username, this.password).subscribe(data => {
 
       this.invalidLogin = false;
 
       if(!this.invalidLogin){
-          this.restSerivce.getRole(this.username).subscribe(data1 => {
-            console.log(data1);
+         this.restSerivce.getRole(this.username).subscribe(async data1 => {
+          await Swal.fire({
+            icon:'success',
+            title:'Credentials verified',
+            text:'Successfully logged in',
+            timer:1000
+          })
             this.role = data1;
             sessionStorage.setItem('role', this.role);
-            if(this.role=='customer')
+            if(this.role=='customer'){
               this.router.navigate(['home']);
-            else
+            }
+            else{
               this.router.navigate(['restaurant-menu']);
+            }
           })
       }
-    }, error => {
-      alert("Invalid Credentials");
+    }, async error => {
+      await Swal.fire({
+        icon: 'error',
+        title:'Oops..',
+        text: 'Incorrect Username/Password',
+        timer:2000
+      })
       this.invalidLogin = true;
       location.reload();
       
@@ -53,4 +66,5 @@ export class LoginComponent implements OnInit {
         this.invalidLogin = true;
       })
   }
+  
 }

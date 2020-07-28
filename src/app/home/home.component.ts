@@ -2,6 +2,7 @@ import { RestaurantService } from './../restaurant.service';
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from '../authentication.service';
 import { CartService } from '../cart.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-home',
@@ -24,7 +25,11 @@ export class HomeComponent implements OnInit {
 
   addToCart(foodId: number){
     this.cartService.addToCart(foodId).subscribe(data => {
-      alert(data);
+      Swal.fire({
+        icon:'success',
+        title:'Item added to cart',
+        timer:1000
+      })
     })
   }
 

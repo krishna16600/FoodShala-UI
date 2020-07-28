@@ -1,6 +1,7 @@
 import { RestaurantService } from './../restaurant.service';
 import { Router, ParamMap, ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-edit-food-item',
@@ -22,15 +23,24 @@ export class EditFoodItemComponent implements OnInit {
   }
 
   editItem(){
-    this.restService.editFoodItem(this.food).subscribe(data => {
+    this.restService.editFoodItem(this.food).subscribe(async data => {
+      await Swal.fire({
+        icon:'success',
+        title:'Item edited',
+        timer:1000
+      })
       this.food = data;
        location.reload();
       })
   }
 
   deleteItem(){
-    this.restService.deletetFoodItem(this.foodId).subscribe(data => {
-      alert(data);
+    this.restService.deletetFoodItem(this.foodId).subscribe(async data => {
+     await  Swal.fire({
+        icon:'success',
+        title:'Item deleted',
+        timer:1000
+      })
       this.router.navigate(['restaurant-menu'])
     })
   }
