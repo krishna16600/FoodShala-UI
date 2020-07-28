@@ -97,7 +97,7 @@ export class CartComponent implements OnInit {
         icon:'success',
         title:'Joy Of Happiness!',
         text:'Order placed successfully..',
-        timer:1000
+        timer:2000
       })
       this.router.navigate(['home']);
     })
